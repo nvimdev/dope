@@ -146,7 +146,7 @@ keymap.map -- function to generate keymap by vim.keymap.set
 keymap.new_opts -- generate opts into vim.keymap.set
 keymap.silent keymap.noremap keymap.expr keymap.nowait  -- function type that work with keymap.new_opts
 keymap.cmd -- just return string with <Cmd> and <CR>
-keymap.cr -- work like cmd but for visual map
+keymap.cu -- work like cmd but for visual map
 ```
 use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary
 but if your have many vim mode remap you can config them in `keymap/other-file.lua` in fernvim is `config.lua`
