@@ -143,7 +143,8 @@ In fernvim there has some apis can make it easy. all apis define in `core/keymap
 ```lua
 keymap.map -- function to generate keymap by vim.keymap.set
 keymap.new_opts -- generate opts into vim.keymap.set
-keymap.silent keymap.noremap keymap.expr keymap.nowait  -- function type that work with keymap.new_opts
+-- function type that work with keymap.new_opts
+keymap.silent keymap.noremap keymap.expr keymap.nowait keymap.remap
 keymap.cmd -- just return string with <Cmd> and <CR>
 keymap.cu -- work like cmd but for visual map
 ```
