@@ -104,7 +104,7 @@ plugin {'plugin github repo name'}
 ```
 
 what is `config` . this is keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need check the doc of packer  to know
-use packer. if plugin has many config you can create other file in `modules/your-folder-name/` aviod make the plugins.lua file too long.
+use packer. if plugin has many config you can create other file in `modules/your-folder-name/config.lua` aviod make the plugins.lua file too long.
 
 Recommand lazyload plugins.check the usage in `modules` , it will improve your neovim start speed. `lazyload` not magic, it just generate 
 your config into some `autocmds`,you can check the `packer_compiled.lua` to check it. I don't like the default path config in packer it use `plugins` folder
@@ -175,6 +175,10 @@ also you can pass a table not include sub table to `map` like
 map {'n','key','rhs',opts(noremap,silent)}
 ```       
 use `:h vim.keymap.set` to know more about.
+
+## Tips
+
+- Improve key repeat
 
 ## Donate
 
