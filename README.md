@@ -4,7 +4,7 @@
     height="30"
     width="0px"
   />
-  Fernvim
+  Cosynvim
   <img
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
     height="30"
@@ -13,22 +13,22 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/glepnir/fernvim/stargazers">
+  <a href="https://github.com/glepnir/cosynvim/stargazers">
     <img
       alt="Stargazers"
       src="https://img.shields.io/github/stars/glepnir/nvim?style=for-the-badge&logo=starship&color=c678dd&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://github.com/glepnir/fernvim/issues">
+  <a href="https://github.com/glepnir/cosynvim/issues">
     <img
       alt="Issues"
-      src="https://img.shields.io/github/issues/glepnir/fernvim?style=for-the-badge&logo=gitbook&color=f0c062&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/issues/glepnir/cosynvim?style=for-the-badge&logo=gitbook&color=f0c062&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://github.com/glepnir/fernvim/contributors">
+  <a href="https://github.com/glepnir/cosynvim/contributors">
     <img
       alt="Contributors"
-      src="https://img.shields.io/github/contributors/glepnir/fernvim?style=for-the-badge&logo=opensourceinitiative&color=abcf84&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/contributors/glepnir/cosynvim?style=for-the-badge&logo=opensourceinitiative&color=abcf84&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
 </p>
@@ -41,9 +41,9 @@
 </p>
 
 
-## What is Fernvim
+## What is Cosynvim
 
-Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Fernvim.What does Fernvim do? Fernvim want
+Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim.What does Cosynvim do? Cosynvim want
 vimers has their own config with a high availability,high performance,modern.
 
 ## Structure
@@ -51,7 +51,7 @@ vimers has their own config with a high availability,high performance,modern.
 ```
 ├── init.lua  
 ├── lua
-│   ├── core                       heart of fernvim provide api
+│   ├── core                       heart of cosynvim provide api
 │   │   ├── init.lua
 │   │   ├── keymap.lua             keymap api
 │   │   ├── options.lua            vim options
@@ -83,7 +83,7 @@ vimers has their own config with a high availability,high performance,modern.
 
 A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. the rule of `modules` you can delete folders in modules.
 and create folder with your favirote name, but your must creat `plugins.lua` and
-register your plguins in this file by use fernvim api.
+register your plguins in this file by use cosynvim api.
 
 ## Usage
 
@@ -111,7 +111,7 @@ your config into some `autocmds`,you can check the `packer_compiled.lua` to chec
 So i set compiled file path to `~/.local/share/nvim/site/lua`,you can find compiled file in this path. use `:h autocmd` to know more about.
 When you edit the config. but when open neovim it not take effect. Please try `PackerCompile` to genreate a new compile file with your new change
 In my personal config i have a function that can auto compiled when i edit the lua file that in this path `~/.config/nvim`.but it will make
-some noise so I didn't use it in fernvim. when i have a new implement I will update it to fernvim core.
+some noise so I didn't use it in cosynvim. when i have a new implement I will update it to cosynvim core.
 
 ```lua
 
@@ -138,7 +138,7 @@ plugin {'nvim-telescope/telescope.nvim',
 
 ### How to config keymap
 
-In fernvim there has some apis can make it easy. all apis define in `core/keymap.lua`.
+In cosynvim there has some apis can make it easy. all apis define in `core/keymap.lua`.
 
 ```lua
 keymap.map -- function to generate keymap by vim.keymap.set
@@ -149,7 +149,7 @@ keymap.cmd -- just return string with <Cmd> and <CR>
 keymap.cu -- work like cmd but for visual map
 ```
 use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary
-but if your have many vim mode remap you can config them in `keymap/other-file.lua` in fernvim is `config.lua`
+but if your have many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua`
 just a example file. then config plugins keymap in `keymap/init.lua`.
 
 the example of api usage
