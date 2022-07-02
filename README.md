@@ -180,6 +180,15 @@ use `:h vim.keymap.set` to know more about.
 
 - Improve key repeat
 
+```
+mac os need restart
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+linux
+xset r rate 210 40
+```
+
 ## Donate
 
 ## Donate
