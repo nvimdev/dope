@@ -86,7 +86,8 @@ and create folder with your favirote name, but your must creat `plugins.lua` and
 ## Usage
 
 You can fork it, or put it in your own repo. Fork is recommended. because it can synchronizes any change I do on the `core` folder. other folders
-will not change in future.
+will not change in future. and if you like this neovim raimbow logo need install
+`lolcat`
 
 ### How to install plugins
 
