@@ -9,7 +9,7 @@
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
     height="30"
     width="0px"
-  />“
+  />
 </h1>
 
 <p align="center">
@@ -43,8 +43,7 @@
 
 ## What is Cosynvim
 
-Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim.What does Cosynvim do? Cosynvim want
-vimers has their own config with a high availability,high performance,modern.
+Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim. What does Cosynvim do? Cosynvim wants vimers to have their own config with high availability, high performance, and modernity.
 
 ## Structure
 
@@ -82,12 +81,12 @@ vimers has their own config with a high availability,high performance,modern.
 ```
 
 A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. the rule of `modules` you can delete folders in modules.
-and create folder with your favirote name, but your must create `plugins.lua` and
-register your plugins in this file by use cosynvim api.
+and create folder with your favorite name, but your must create `plugins.lua` and
+register your plugins in this file by using cosynvim api.
 
 ## Usage
 
-click `Use this template` Button and if you like this neovim raimbow logo need install
+click `Use this template` Button and if you like this neovim rainbow logo need install
 `lolcat`
 
 ### How to install plugins
@@ -104,12 +103,12 @@ plugin {'plugin github repo name'}
 ```
 
 what is `config` . this is keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need check the doc of packer  to know
-use packer. if plugin has many config you can create other file in `modules/your-folder-name/config.lua` avoid make the plugins.lua file too long.
+use packer. if plugin has many configs you can create other file in `modules/your-folder-name/config.lua` avoid making the plugins.lua file too long.
 
 Recommend lazyload plugins. Check the usage in `modules` , it will improve your neovim start speed. `lazyload` is not magic, it just generate 
 your config into some `autocmds`,you can check the `packer_compiled.lua` to check it. I don't like the default path config in packer it use `plugins` folder
 So i set compiled file path to `~/.local/share/nvim/site/lua`, you can find compiled file in this path. Use `:h autocmd` to know more about.
-When you edit the config and open neovim and it does not take effect. Please try `PackerCompile` to genreate a new compile file with your new change
+When you edit the config and open neovim and it does not take effect. Please try `PackerCompile` to generate a new compile file with your new change
 In my personal config i have a function that can auto compiled when i edit the lua file that in this path `~/.config/nvim`. But it will make
 some noise so I didn't use it in cosynvim. when i have a new implement I will update it to cosynvim core.
 
