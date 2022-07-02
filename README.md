@@ -16,7 +16,7 @@
   <a href="https://github.com/glepnir/cosynvim/stargazers">
     <img
       alt="Stargazers"
-      src="https://img.shields.io/github/stars/glepnir/nvim?style=for-the-badge&logo=starship&color=c678dd&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/stars/glepnir/cosynvim?style=for-the-badge&logo=starship&color=c678dd&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
   <a href="https://github.com/glepnir/cosynvim/issues">
