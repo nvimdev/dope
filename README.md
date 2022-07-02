@@ -87,8 +87,7 @@ register your plguins in this file by use fernvim api.
 
 ## Usage
 
-You can fork it, or put it in your own repo. Fork is recommended. because it can synchronizes any change I do on the `core` folder. other folders
-will not change in future. and if you like this neovim raimbow logo need install
+click button `use template` and if you like this neovim raimbow logo need install
 `lolcat`
 
 ### How to install plugins
