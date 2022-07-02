@@ -87,7 +87,7 @@ register your plguins in this file by use cosynvim api.
 
 ## Usage
 
-click button `use template` and if you like this neovim raimbow logo need install
+click `Use this template` Button and if you like this neovim raimbow logo need install
 `lolcat`
 
 ### How to install plugins
