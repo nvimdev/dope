@@ -70,7 +70,7 @@ vim.opt.helpheight     = 12;
 vim.opt.previewheight  = 12;
 vim.opt.showcmd        = false;
 -- just for nightly
-vim.opt.cmdheight      = 0;
+vim.opt.cmdheight      = 2;
 vim.opt.cmdwinheight   = 5;
 vim.opt.equalalways    = false;
 vim.opt.laststatus     = 2;
