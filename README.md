@@ -82,8 +82,8 @@ vimers has their own config with a high availability,high performance,modern.
 ```
 
 A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. the rule of `modules` you can delete folders in modules.
-and create folder with your favirote name, but your must creat `plugins.lua` and
-register your plguins in this file by use cosynvim api.
+and create folder with your favirote name, but your must create `plugins.lua` and
+register your plugins in this file by use cosynvim api.
 
 ## Usage
 
