@@ -43,7 +43,8 @@
 
 ## What is Fernvim
 
-Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). But it's my personal, many configurations and keys may not be suitable for everyone. So I create this project.
+Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Fernvim.What does Fernvim do? Fernvim want
+vimers has their own config with a high availability,high performance,modern.
 
 ## Structure
 
