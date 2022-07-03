@@ -97,7 +97,7 @@ your plugins in this file by using cosynvim api.
 
 ### How to install plugins
 
-Api is `require('core.pack').register_plugin`. so pass plugin as param into this function. usage like in `modules/your-folder-name/plugins.lua`
+Api is `require('core.pack').register_plugin`. So pass plugin as param into this function. Usage like in `modules/your-folder-name/plugins.lua`
 
 ```lua
 local plugin = require('core.pack').register_plugin
@@ -151,7 +151,7 @@ plugin {'nvim-telescope/telescope.nvim',
 
 ### How to config keymap
 
-In cosynvim there has some apis can make it easy. all apis define in `core/keymap.lua`.
+In cosynvim there are some apis that make it easy to set keymap. All apis are defined in `core/keymap.lua`.
 
 ```lua
 keymap.map -- function to generate keymap by vim.keymap.set

@@ -105,12 +105,25 @@ function plugins.load_compile()
     vim.notify('Run PackerInstall or PackerCompile','info',{title= 'Packer'})
   end
 
-  vim.cmd [[command! PackerCompile lua require('core.pack').compile_notify()]]
-  vim.cmd [[command! PackerInstall lua require('core.pack').install()]]
-  vim.cmd [[command! PackerUpdate lua require('core.pack').update()]]
-  vim.cmd [[command! PackerSync lua require('core.pack').sync()]]
-  vim.cmd [[command! PackerClean lua require('core.pack').clean()]]
-  vim.cmd [[command! PackerStatus  lua require('packer').status()]]
+  local cmd_func = {
+    Compile = 'compile_notify',
+    Install = 'install',
+    Update = 'update',
+    Sync = 'sync',
+    Clean = 'clean',
+    Status = 'status'
+  }
+  for cmd, func in pairs(cmd_func) do
+    api.nvim_create_user_command('Packer' .. cmd, function ()
+      require('core.pack')[func]()
+    end, {})
+  end
+  -- vim.cmd [[command! PackerCompile lua require('core.pack').compile_notify()]]
+  -- vim.cmd [[command! PackerInstall lua require('core.pack').install()]]
+  -- vim.cmd [[command! PackerUpdate lua require('core.pack').update()]]
+  -- vim.cmd [[command! PackerSync lua require('core.pack').sync()]]
+  -- vim.cmd [[command! PackerClean lua require('core.pack').clean()]]
+  -- vim.cmd [[command! PackerStatus  lua require('packer').status()]]
 end
 
 return plugins
