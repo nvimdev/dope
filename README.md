@@ -161,7 +161,7 @@ plugin {'nvim-telescope/telescope.nvim',
 In cosynvim there are some apis that make it easy to set keymap. All apis are defined in `core/keymap.lua`.
 
 ```lua
-keymap.map -- function to generate keymap by vim.keymap.set
+keymap.(n/i/c/v/x/t)map -- function to generate keymap by vim.keymap.set
 keymap.new_opts -- generate opts into vim.keymap.set
 -- function type that work with keymap.new_opts
 keymap.silent keymap.noremap keymap.expr keymap.nowait keymap.remap
@@ -176,11 +176,12 @@ have many vim mode remap you can config them in `keymap/other-file.lua` in cosyn
 example file. then config plugins keymap in `keymap/init.lua`. the example of api usage
 
 ```lua
-map {
+-- genreate keymap in noremal mode
+nmap {
   -- packer
-  {'n','<Leader>pu',cmd('PackerUpdate'),opts(noremap,silent)},
-  {'n','<Leader>pi',cmd('PackerInstall'),opts(noremap,silent)},
-  {'n','<Leader>pc',cmd('PackerCompile'),opts(noremap,silent)},
+  {'<Leader>pu',cmd('PackerUpdate'),opts(noremap,silent)},
+  {'<Leader>pi',cmd('PackerInstall'),opts(noremap,silent)},
+  {'<Leader>pc',cmd('PackerCompile'),opts(noremap,silent)},
 }
 ```
 
@@ -194,13 +195,13 @@ confused what is `<cmd>` check `:h <cmd>` you will get answer
 
 ```lua
   -- window jump
-  {'n',"<C-h>",'<C-w>h',opts(noremap)},
+  {"<C-h>",'<C-w>h',opts(noremap)},
 ```
 
 also you can pass a table not include sub table to `map` like
 
 ```lua
-map {'n','key','rhs',opts(noremap,silent)}
+nmap {'key','rhs',opts(noremap,silent)}
 ```
 
 use `:h vim.keymap.set` to know more about.
