@@ -48,7 +48,6 @@ What does Cosynvim do? Cosynvim wants vimers to have their own config with high 
 
 and modernity.
 
-
 ## Structure
 
 ```
@@ -100,7 +99,7 @@ create `plugins.lua` and register your plugins in this file by using cosynvim ap
 
 ### How to install plugins
 
-Api is `require('core.pack').register_plugin`. So pass plugin as param into this function. Usage 
+Api is `require('core.pack').register_plugin`. So pass plugin as param into this function. Usage
 
 like in `modules/your-folder-name/plugins.lua`
 
@@ -129,9 +128,9 @@ compiled file path to `~/.local/share/nvim/site/lua`, you can find compiled file
 to know more about. When you edit the config and open neovim and it does not take effect. Please try
 
  `PackerCompile` to generate a new compile file with your new change. In my personal config i have a function that
- 
+
  can auto compiled . when i edit the lua file that in this path `~/.config/nvim`. But it will make some noise so I didn't
- 
+
  use it in cosynvim. when i have a newimplement I will update it to cosynvim core.
 
 ```lua
@@ -170,11 +169,11 @@ keymap.cmd -- just return string with <Cmd> and <CR>
 keymap.cu -- work like cmd but for visual map
 ```
 
-use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary but if your have
+use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary but if you
 
-many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua` just a example
+have many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua` just an
 
-file. then config plugins keymap in `keymap/init.lua`. the example of api usage
+example file. then config plugins keymap in `keymap/init.lua`. the example of api usage
 
 ```lua
 map {
