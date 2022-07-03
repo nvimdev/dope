@@ -4,39 +4,44 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
-local map,silent,noremap = keymap.map,keymap.silent,keymap.noremap
+local nmap,imap,cmap,xmap = keymap.nmap,keymap.imap,keymap.cmap,keymap.xmap
+local silent,noremap = keymap.silent,keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
 
 -- Use space as leader key
 vim.g.mapleader = " "
 
--- usage example
-map {
   -- leaderkey
-  {'n',' ','',opts(noremap)},
-  {'x',' ','',opts(noremap)},
+nmap {' ','',opts(noremap)}
+xmap {' ','',opts(noremap)}
+
+-- usage example
+nmap {
   -- noremal remap
   -- close buffer
-  {'n',"<C-x>k",cmd('bdelete'),opts(noremap,silent)},
+  {"<C-x>k",cmd('bdelete'),opts(noremap,silent)},
   -- save
-  {'n',"<C-s>",cmd('write'),opts(noremap)},
+  {"<C-s>",cmd('write'),opts(noremap)},
   -- yank
-  {'n',"Y",'y$',opts(noremap)},
+  {"Y",'y$',opts(noremap)},
   -- buffer jump
-  {'n',"]b",cmd('bn'),opts(noremap)},
-  {'n',"[b",cmd('bp'),opts(noremap)},
+  {"]b",cmd('bn'),opts(noremap)},
+  {"[b",cmd('bp'),opts(noremap)},
   -- remove trailing white space
-  {'n',"<Leader>t",cmd('TrimTrailingWhitespace'),opts(noremap)},
+  {"<Leader>t",cmd('TrimTrailingWhitespace'),opts(noremap)},
   -- window jump
-  {'n',"<C-h>",'<C-w>h',opts(noremap)},
-  {'n',"<C-l>",'<C-w>l',opts(noremap)},
-  {'n',"<C-j>",'<C-w>j',opts(noremap)},
-  {'n',"<C-k>",'<C-w>k',opts(noremap)},
+  {"<C-h>",'<C-w>h',opts(noremap)},
+  {"<C-l>",'<C-w>l',opts(noremap)},
+  {"<C-j>",'<C-w>j',opts(noremap)},
+  {"<C-k>",'<C-w>k',opts(noremap)},
+}
 
+imap {
   -- insert mode
-  {'i',"<C-h>",'<Bs>',opts(noremap)},
+  {"<C-h>",'<Bs>',opts(noremap)},
+  {"<C-e>",'<End>',opts(noremap)},
+}
 
   -- commandline remap
-  {'c','<C-b>','<Left>',opts(noremap)},
-}
+cmap {'<C-b>','<Left>',opts(noremap)}
