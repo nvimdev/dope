@@ -6,15 +6,22 @@ local keymap = {}
 local opts = {}
 
 function opts:new(instance)
-  instance = instance or {}
+  instance = instance or {
+    options = {
+      silent = false,
+      nowait = false,
+      expr = false,
+      noremap = false
+    }
+  }
   setmetatable(instance,self)
   self.__index = self
-  self.options = {
-    silent = false,
-    nowait = false,
-    expr = false,
-    noremap = false
-  }
+  -- self.options = {
+  --   silent = false,
+  --   nowait = false,
+  --   expr = false,
+  --   noremap = false
+  -- }
   return instance
 end
 
