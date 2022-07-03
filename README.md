@@ -44,9 +44,9 @@
 
 Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim.
 
-What does Cosynvim do? Cosynvim wants vimers to have their own config with high availability, high performance
+What does Cosynvim do? Cosynvim wants vimers to have their own config with high performance
 
-and modernity.
+fast speed and modernity.
 
 ## Structure
 
