@@ -59,7 +59,7 @@ function Packer:init_ensure_plugins()
       assert("make compile path dir faield")
     end)
     self:load_packer()
-    packer.install()
+    packer.sync()
   end
 end
 
@@ -102,7 +102,7 @@ function plugins.load_compile()
   if vim.fn.filereadable(packer_compiled) == 1 then
     require('packer_compiled')
   else
-    vim.notify('Run PackerInstall or PackerCompile','info',{title= 'Packer'})
+    vim.notify('Run PackerSync or PackerCompile','info',{title= 'Packer'})
   end
 
   local cmd_func = {
