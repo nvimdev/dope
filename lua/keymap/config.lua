@@ -24,7 +24,7 @@ map {
   -- yank
   {'n',"Y",'y$',opts(noremap)},
   -- buffer jump
-  {'n',"]b",cmd('bp'),opts(noremap)},
+  {'n',"]b",cmd('bn'),opts(noremap)},
   {'n',"[b",cmd('bp'),opts(noremap)},
   -- remove trailing white space
   {'n',"<Leader>t",cmd('TrimTrailingWhitespace'),opts(noremap)},
