@@ -40,10 +40,11 @@
   />
 </p>
 
-
 ## What is Cosynvim
 
-Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim. What does Cosynvim do? Cosynvim wants vimers to have their own config with high availability, high performance, and modernity.
+Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim.
+
+What does Cosynvim do? Cosynvim wants vimers to have their own config with high availability, high performance, and modernity.
 
 ## Structure
 
@@ -80,14 +81,19 @@ Many people are interested in my [personal configuration](https://github.com/gle
 
 ```
 
-A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. the rule of `modules` you can delete folders in modules.
-and create folder with your favorite name, but your must create `plugins.lua` and
-register your plugins in this file by using cosynvim api.
+A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. the rule of `modules`
+
+you can delete folders in modules. and create folder with your favorite name, but your must create `plugins.lua` and register
+
+your plugins in this file by using cosynvim api.
 
 ## Usage
 
-click `Use this template` Button and if you like this neovim rainbow logo need install
-`lolcat`
+- Click button `Use this template` It will genereate a new repo based on cosy on your github
+
+- Then you need input repo name, Give your nvim configuration a nice name
+
+- Enjoy
 
 ### How to install plugins
 
@@ -102,15 +108,23 @@ plugin {'glepnir/zephyr-nvim', config = conf.zephyr}
 plugin {'plugin github repo name'}
 ```
 
-what is `config` . this is keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need check the doc of packer  to know
-use packer. if plugin has many configs you can create other file in `modules/your-folder-name/config.lua` avoid making the plugins.lua file too long.
+what is `config` . this is keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need check the doc of packer
 
-Recommend lazyload plugins. Check the usage in `modules` , it will improve your neovim start speed. `lazyload` is not magic, it just generate 
-your config into some `autocmds`,you can check the `packer_compiled.lua` to check it. I don't like the default path config in packer it use `plugins` folder
-So i set compiled file path to `~/.local/share/nvim/site/lua`, you can find compiled file in this path. Use `:h autocmd` to know more about.
-When you edit the config and open neovim and it does not take effect. Please try `PackerCompile` to generate a new compile file with your new change
-In my personal config i have a function that can auto compiled when i edit the lua file that in this path `~/.config/nvim`. But it will make
-some noise so I didn't use it in cosynvim. when i have a new implement I will update it to cosynvim core.
+to know how to use packer. if plugin has many configs you can create other file in `modules/your-folder-name/config.lua` avoid
+
+making the plugins.lua file too long.Recommend lazyload plugins. Check the usage in `modules` , it will improve your neovim start speed.
+
+`lazyload` is not magic, it just generate your config into some `autocmds`,you can check the `packer_compiled.lua` to check it. I don't
+
+like the default path config in packer it use `plugins` folder  So i set compiled file path to `~/.local/share/nvim/site/lua`, you can
+
+find compiled file in this path. Use `:h autocmd` to know more about. When you edit the config and open neovim and it does not take effect.
+
+Please try `PackerCompile` to generate a new compile file with your new change. In my personal config i have a function that can auto compiled
+
+when i edit the lua file that in this path `~/.config/nvim`. But it will make some noise so I didn't use it in cosynvim. when i have a new
+
+implement I will update it to cosynvim core.
 
 ```lua
 
@@ -147,9 +161,12 @@ keymap.silent keymap.noremap keymap.expr keymap.nowait keymap.remap
 keymap.cmd -- just return string with <Cmd> and <CR>
 keymap.cu -- work like cmd but for visual map
 ```
-use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary
-but if your have many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua`
-just a example file. then config plugins keymap in `keymap/init.lua`.
+
+use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary but if your have
+
+many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua` just a example file. then
+
+config plugins keymap in `keymap/init.lua`.
 
 the example of api usage
 
@@ -161,18 +178,24 @@ map {
   {'n','<Leader>pc',cmd('PackerCompile'),opts(noremap,silent)},
 }
 ```
+
 `map` foreach every table and generate a new table that can pass to `vim.keymap.set`. `cmd('PackerUpdate')` just return a
-string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu>`, `opts(noremap,silent)` generate options table`{noremap = true,silent = true }`.
+
+string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu>`, `opts(noremap,silent)` generate options table `{noremap = true,silent = true }`
 
 for some vim mode remap. not need use `cmd` function. oh maybe you will be confused what is `<cmd>` check `:h <cmd>` you will get answer
+
 ```lua
   -- window jump
   {'n',"<C-h>",'<C-w>h',opts(noremap)},
 ```
-also you can pass a table not include sub table to `map` like 
+
+also you can pass a table not include sub table to `map` like
+
 ```lua
 map {'n','key','rhs',opts(noremap,silent)}
-```       
+```
+
 use `:h vim.keymap.set` to know more about.
 
 ## Tips
@@ -189,6 +212,7 @@ xset r rate 210 40
 ```
 
 ## Donate
+
 [![](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/bobbyhub)
 
 If you'd like to support my work financially, buy me a drink through [paypal](https://paypal.me/bobbyhub)
