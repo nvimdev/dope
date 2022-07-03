@@ -16,12 +16,6 @@ function opts:new(instance)
   }
   setmetatable(instance,self)
   self.__index = self
-  -- self.options = {
-  --   silent = false,
-  --   nowait = false,
-  --   expr = false,
-  --   noremap = false
-  -- }
   return instance
 end
 

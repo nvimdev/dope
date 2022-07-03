@@ -3,7 +3,7 @@
 -- License: MIT
 
 local plugin = require('core.pack').register_plugin
-local conf = require('modules.ui.config')
+local conf = require('modules.completion.config')
 
 plugin {'neovim/nvim-lspconfig',
  -- used filetype to lazyload lsp

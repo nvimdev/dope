@@ -20,7 +20,6 @@ function Packer:load_plugins()
     local tmp = vim.split(fn.globpath(modules_dir,'*/plugins.lua'),'\n')
     for _,f in ipairs(tmp) do
       list[#list+1] = string.match(f, "lua/(.+).lua$")
-      -- list[#list+1] = f:sub(#modules_dir - 6,-1)
     end
     return list
   end
@@ -28,7 +27,6 @@ function Packer:load_plugins()
   local plugins_file = get_plugins_list()
   for _,m in ipairs(plugins_file) do
     require(m)
-    -- require(m:sub(0,#m-4))
   end
 end
 
