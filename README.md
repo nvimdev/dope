@@ -77,7 +77,7 @@ fast speed and modernity.
 │           └── plugins.lua
 ├── snippets                       snippets 
 │   ├── lua.json
-│   └── packages.json
+│   └── package.json
 └── static                         dashboard logo
     └── neovim.cat
 
