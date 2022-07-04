@@ -42,7 +42,7 @@
 
 ## What is Cosynvim
 
-Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I create Cosynvim.
+Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I created Cosynvim.
 
 What does Cosynvim do? Cosynvim wants vimers to have their own config with high performance
 
@@ -83,9 +83,9 @@ fast speed and modernity.
 
 ```
 
-A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. the
+A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. The
 
-rule of `modules` you can delete folders in modules. and create folder with your favorite name, but you must
+rule of `modules` is you can delete folders in modules. And create folder with your favorite name, but you must
 
 create `plugins.lua` and register your plugins in this file by using cosynvim api.
 
@@ -112,12 +112,12 @@ plugin {'glepnir/zephyr-nvim', config = conf.zephyr}
 plugin {'plugin github repo name'}
 ```
 
-what is `config` . this is keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need check the doc of packer to know how to use packer.
+what is `config` . This is a keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need to check the doc of packer to know how to use packer.
 
-if plugin has many configs you can create other file in `modules/your-folder-name/config.lua` avoid
+If a plugin has many configs you can create other file in `modules/your-folder-name/config.lua` avoid
 making the
 
-plugins.lua file too long.Recommend lazyload plugins. Check the usage in `modules` , it will improve your neovim
+plugins.lua file too long. Recommend lazyload plugins. Check the usage in `modules` , it will improve your neovim
 
 start speed. `lazyload` is not magic, it just generate your config into some `autocmds` , you can check the
 
@@ -169,11 +169,11 @@ keymap.cmd -- just return string with <Cmd> and <CR>
 keymap.cu -- work like cmd but for visual map
 ```
 
-use these apis to config your keymap in `keymap` folder. in this folder `keymap/init.lua` is necessary but if you
+Use these apis to config your keymap in `keymap` folder. In this folder `keymap/init.lua` is necessary but if you
 
 have many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua` just an
 
-example file. then config plugins keymap in `keymap/init.lua`. the example of api usage
+example file. Then config plugins keymap in `keymap/init.lua`. the example of api usage
 
 ```lua
 -- genreate keymap in noremal mode
