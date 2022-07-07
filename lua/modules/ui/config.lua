@@ -21,32 +21,36 @@ function config.dashboard()
   db.preview_file_height = 12
   db.preview_file_width = 80
   db.custom_center = {
-      {icon = '  ',
+    {
+      icon = '  ',
       desc = 'Update Plugins                          ',
       shortcut = 'SPC p u',
-      action ='PackerUpdate'},
-      {icon = '  ',
+      action = 'PackerUpdate',
+    },
+    {
+      icon = '  ',
       desc = 'Find  File                              ',
       action = 'Telescope find_files find_command=rg,--hidden,--files',
-      shortcut = 'SPC f f'},
-    }
+      shortcut = 'SPC f f',
+    },
+  }
 end
 
 function config.nvim_bufferline()
-  require('bufferline').setup{
+  require('bufferline').setup({
     options = {
       modified_icon = '✥',
       buffer_close_icon = '',
       always_show_bufferline = false,
-    }
-  }
+    },
+  })
 end
 
 function config.nvim_tree()
-	require("nvim-tree").setup({
-		disable_netrw = false,
-		hijack_cursor = true,
-		hijack_netrw = true,
+  require('nvim-tree').setup({
+    disable_netrw = false,
+    hijack_cursor = true,
+    hijack_netrw = true,
   })
 end
 
