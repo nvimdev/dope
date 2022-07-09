@@ -164,7 +164,7 @@ In cosynvim there are some apis that make it easy to set keymap. All apis are de
 keymap.(n/i/c/v/x/t)map -- function to generate keymap by vim.keymap.set
 keymap.new_opts -- generate opts into vim.keymap.set
 -- function type that work with keymap.new_opts
-keymap.silent keymap.noremap keymap.expr keymap.nowait keymap.remap
+keymap.silent keymap.noremap keymap.expr keymap.nowait keymap.remap keymap.desc('Some description')
 keymap.cmd -- just return string with <Cmd> and <CR>
 keymap.cu -- work like cmd but for visual map
 ```
@@ -195,7 +195,7 @@ confused what is `<cmd>` check `:h <cmd>` you will get answer
 
 ```lua
   -- window jump
-  {"<C-h>",'<C-w>h',opts(noremap)},
+  {"<C-h>",'<C-w>h',opts(noremap, desc 'Goto left window')},
 ```
 
 also you can pass a table not include sub table to `map` like
