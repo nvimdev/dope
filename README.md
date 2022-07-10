@@ -179,7 +179,7 @@ example file. Then config plugins keymap in `keymap/init.lua`. the example of ap
 -- genreate keymap in noremal mode
 nmap {
   -- packer
-  {'<Leader>pu',cmd('PackerUpdate'),opts(noremap,silent)},
+  {'<Leader>pu',cmd('PackerUpdate'),opts(noremap,silent,'Packer update')},
   {'<Leader>pi',cmd('PackerInstall'),opts(noremap,silent)},
   {'<Leader>pc',cmd('PackerCompile'),opts(noremap,silent)},
 }
@@ -187,9 +187,9 @@ nmap {
 
 `map` foreach every table and generate a new table that can pass to `vim.keymap.set`. `cmd('PackerUpdate')` just
 
-return a string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu>`, `opts(noremap,silent)` generate options table
+return a string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu>`, `opts(noremap,silent,'Packer update')` generate options table
 
-`{noremap = true,silent = true }` . for some vim mode remap. not need use `cmd` function. oh maybe you will be
+`{noremap = true,silent = true, desc = 'Packer Update' }` . for some vim mode remap. not need use `cmd` function. oh maybe you will be
 
 confused what is `<cmd>` check `:h <cmd>` you will get answer
 

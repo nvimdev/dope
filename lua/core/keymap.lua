@@ -59,7 +59,11 @@ function keymap.new_opts(...)
   end
 
   for _, arg in pairs(args) do
-    arg(o.options)()
+    if type(arg) == 'string' then
+      o.options.desc = arg
+    else
+      arg(o.options)()
+    end
   end
   return o.options
 end
