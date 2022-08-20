@@ -4,7 +4,7 @@
       {
         "language": "lua",
         "path": "./lua.json"
-      },
+      }
     ]
   }
 }
