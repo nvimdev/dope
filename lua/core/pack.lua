@@ -2,9 +2,10 @@
 -- date: 2022-07-02
 -- License: MIT
 
-local fn, uv, api = vim.fn, vim.loop, vim.api
-local vim_path = vim.fn.stdpath('config')
-local data_dir = string.format('%s/site/', vim.fn.stdpath('data'))
+local uv, api = vim.loop, vim.api
+local helper = require('core.helper')
+local vim_path = helper.get_config_path()
+local data_dir = string.format('%s/site/', helper.get_data_path())
 local modules_dir = vim_path .. '/lua/modules'
 local packer_compiled = data_dir .. 'lua/packer_compiled.lua'
 local packer = nil
@@ -17,7 +18,7 @@ function Packer:load_plugins()
 
   local get_plugins_list = function()
     local list = {}
-    local tmp = vim.split(fn.globpath(modules_dir, '*/plugins.lua'), '\n')
+    local tmp = vim.split(vim.fn.globpath(modules_dir, '*/plugins.lua'), '\n')
     for _, f in ipairs(tmp) do
       list[#list + 1] = string.match(f, 'lua/(.+).lua$')
     end
@@ -37,7 +38,6 @@ function Packer:load_packer()
   end
   packer.init({
     compile_path = packer_compiled,
-    git = { clone_timeout = 120 },
     disable_commands = true,
     display = {
       open_fn = require('packer.util').float,
@@ -47,6 +47,7 @@ function Packer:load_packer()
       removed_sym = '',
       moved_sym = 'ﰳ',
     },
+    git = { clone_timeout = 120 },
   })
   packer.reset()
   local use = packer.use
@@ -64,15 +65,26 @@ function Packer:init_ensure_plugins()
     local cmd = '!git clone https://github.com/wbthomason/packer.nvim ' .. packer_dir
     api.nvim_command(cmd)
     uv.fs_mkdir(data_dir .. 'lua', 511, function()
-      assert('make compile path dir faield')
+      assert('make compile path dir failed')
     end)
     self:load_packer()
     packer.sync()
   end
 end
 
+function Packer:cli_compile()
+  self:load_packer()
+  packer.compile()
+  vim.defer_fn(function()
+    vim.cmd('q')
+  end, 1000)
+end
+
 local plugins = setmetatable({}, {
   __index = function(_, key)
+    if key == 'Packer' then
+      return Packer
+    end
     if not packer then
       Packer:load_packer()
     end
@@ -84,17 +96,15 @@ function plugins.ensure_plugins()
   Packer:init_ensure_plugins()
 end
 
-function plugins.register_plugin(repo)
+function plugins.package(repo)
+  if not Packer.repos then
+    Packer.repos = {}
+  end
   table.insert(Packer.repos, repo)
 end
 
--- function plugins.compile_notify()
---   plugins.compile()
---   vim.notify('Compile Done!','info',{ title = 'Packer' })
--- end
-
 function plugins.auto_compile()
-  local file = vim.fn.expand('%:p')
+  local file = api.nvim_buf_get_name(0)
   if not file:match(vim_path) then
     return
   end
@@ -109,8 +119,6 @@ end
 function plugins.load_compile()
   if vim.fn.filereadable(packer_compiled) == 1 then
     require('packer_compiled')
-  else
-    vim.notify('Run PackerSync or PackerCompile', 'info', { title = 'Packer' })
   end
 
   local cmds = {
@@ -123,25 +131,27 @@ function plugins.load_compile()
   }
   for _, cmd in ipairs(cmds) do
     api.nvim_create_user_command('Packer' .. cmd, function()
-      require('core.pack')[fn.tolower(cmd)]()
+      require('core.pack')[string.lower(cmd)]()
     end, {})
   end
 
-  local PackerHooks = vim.api.nvim_create_augroup('PackerHooks', {})
+  local PackerHooks = vim.api.nvim_create_augroup('PackerHooks', { clear = true })
   vim.api.nvim_create_autocmd('User', {
+    group = PackerHooks,
     pattern = 'PackerCompileDone',
     callback = function()
       vim.notify('Compile Done!', vim.log.levels.INFO, { title = 'Packer' })
+      dofile(vim.env.MYVIMRC)
     end,
-    group = PackerHooks,
   })
 
-  -- vim.cmd [[command! PackerCompile lua require('core.pack').compile()]]
-  -- vim.cmd [[command! PackerInstall lua require('core.pack').install()]]
-  -- vim.cmd [[command! PackerUpdate lua require('core.pack').update()]]
-  -- vim.cmd [[command! PackerSync lua require('core.pack').sync()]]
-  -- vim.cmd [[command! PackerClean lua require('core.pack').clean()]]
-  -- vim.cmd [[command! PackerStatus  lua require('packer').status()]]
+  api.nvim_create_autocmd('BufWritePost', {
+    pattern = '*.lua',
+    callback = function()
+      plugins.auto_compile()
+    end,
+    desc = 'Auto Compile the neovim config which write in lua',
+  })
 end
 
 return plugins
