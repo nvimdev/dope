@@ -2,7 +2,7 @@
 -- date: 2022-07-02
 -- License: MIT
 local opt = vim.opt
-local cache_dir = require('helper').get_cache_path()
+local cache_dir = require('core.helper').get_cache_path()
 
 opt.termguicolors = true
 opt.hidden = true
