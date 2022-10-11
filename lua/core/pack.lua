@@ -96,7 +96,7 @@ function plugins.ensure_plugins()
   Packer:init_ensure_plugins()
 end
 
-function plugins.package(repo)
+function plugins.register_plugin(repo)
   if not Packer.repos then
     Packer.repos = {}
   end
