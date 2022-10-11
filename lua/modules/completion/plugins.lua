@@ -15,7 +15,7 @@ plugin({
 
 plugin({
   'hrsh7th/nvim-cmp',
-  event = 'BufReadPre',
+  event = 'InsertEnter',
   config = conf.nvim_cmp,
   requires = {
     { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lspconfig' },
@@ -25,4 +25,4 @@ plugin({
   },
 })
 
-plugin({ 'L3MON4D3/LuaSnip', event = 'InsertEnter', config = conf.lua_snip })
+plugin({ 'L3MON4D3/LuaSnip', event = 'InsertCharPre', config = conf.lua_snip })
