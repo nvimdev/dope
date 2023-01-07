@@ -1,6 +1,3 @@
--- author: glepnr https://github.com/glepnir
--- date: 2022-07-02
--- License: MIT
 local opt = vim.opt
 local cache_dir = vim.env.HOME .. '/.cache/nvim/'
 

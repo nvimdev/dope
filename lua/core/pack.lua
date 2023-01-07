@@ -1,6 +1,3 @@
--- author: glepnr https://github.com/glepnir
--- date: 2023-01-07
--- License: MIT
 local uv, api, fn = vim.loop, vim.api, vim.fn
 
 local pack = {}

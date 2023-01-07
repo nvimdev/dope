@@ -1,7 +1,3 @@
--- author: glepnr https://github.com/glepnir
--- date: 2023-01-07
--- License: MIT
--- recommend plugins key defines in this file
 local keymap = require('core.keymap')
 local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap
 local silent, noremap = keymap.silent, keymap.noremap
