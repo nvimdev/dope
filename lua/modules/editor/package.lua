@@ -3,7 +3,7 @@
 -- License: MIT
 
 local package = require('core.pack').package
-local conf = require('modules.lang.config')
+local conf = require('modules.editor.config')
 
 package({
   'nvim-treesitter/nvim-treesitter',
