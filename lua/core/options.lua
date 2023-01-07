@@ -2,7 +2,7 @@
 -- date: 2022-07-02
 -- License: MIT
 local opt = vim.opt
-local cache_dir = require('core.helper').get_cache_path()
+local cache_dir = vim.env.HOME .. '/.cache/nvim/'
 
 opt.termguicolors = true
 opt.hidden = true
@@ -27,7 +27,6 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.infercase = true
 
--- use rg in vim grep
 if vim.fn.executable('rg') == 1 then
   opt.grepformat = '%f:%l:%c:%m,%f:%l:%m'
   opt.grepprg = 'rg --vimgrep --no-heading --smart-case'
@@ -43,6 +42,7 @@ opt.showtabline = 0
 opt.winwidth = 30
 opt.pumheight = 15
 opt.showcmd = false
+
 opt.cmdheight = 0
 opt.laststatus = 3
 opt.list = true
@@ -56,12 +56,14 @@ opt.expandtab = true
 opt.autoindent = true
 opt.tabstop = 2
 opt.shiftwidth = 2
+opt.diffopt:append('linematch:50')
 
 -- wrap
 opt.linebreak = true
 opt.whichwrap = 'h,l,<,>,[,],~'
 opt.breakindentopt = 'shift:2,min:20'
-opt.showbreak = '↳  '
+opt.showbreak = '↳ '
+
 opt.foldlevelstart = 99
 opt.foldmethod = 'marker'
 
@@ -71,9 +73,6 @@ opt.spelloptions = 'camel'
 
 opt.textwidth = 100
 opt.colorcolumn = '100'
--- opt.conceallevel = 2
--- opt.concealcursor = 'niv'
-
 if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.clipboard = {
     name = 'macOS-clipboard',

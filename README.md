@@ -51,110 +51,59 @@ fast speed and modernity.
 ## Structure
 
 ```
-├── init.lua  
+├── init.lua
 ├── lua
-│   ├── core                       heart of cosynvim provide api
+│   ├── core
+│   │   ├── cli.lua
+│   │   ├── helper.lua
 │   │   ├── init.lua
-│   │   ├── keymap.lua             keymap api
-│   │   ├── options.lua            vim options
-│   │   └── pack.lua               hack packer
-│   ├── keymap                     your keymap in here
+│   │   ├── keymap.lua
+│   │   ├── options.lua
+│   │   └── pack.lua
+│   ├── keymap
 │   │   ├── config.lua
 │   │   └── init.lua
-│   └── modules                    plugins module usage example
+│   └── modules
 │       ├── completion
 │       │   ├── config.lua
-│       │   └── plugins.lua
-│       ├── lang
+│       │   └── package.lua
+│       ├── editor
 │       │   ├── config.lua
-│       │   └── plugins.lua
+│       │   └── package.lua
 │       ├── tools
 │       │   ├── config.lua
-│       │   └── plugins.lua
+│       │   └── package.lua
 │       └── ui
 │           ├── config.lua
-│           ├── eviline.lua
-│           └── plugins.lua
-├── snippets                       snippets 
+│           └── package.lua
+├── snippets
 │   ├── lua.json
+│   ├── lua.lua
 │   └── package.json
-└── static                         dashboard logo
-    └── neovim.cat
-
 ```
 
-A nice structure right ? Looks complicated ? You can delete any folder except core and keymap modules. The
-
-rule of `modules` is you can delete folders in modules. And create folder with your favorite name, but you must
-
-create `plugins.lua` and register your plugins in this file by using cosynvim api.
+- `core` heart of cosy it include the api of cosy
+- `modlues` plugin module and config in this folder
+- `snippets` vscode snippets json file
 
 ## Usage
 
 - Click button `Use this template` It will genereate a new repo based on cosy on your github
 
-- Then you need input repo name, Give your nvim configuration a nice name
+### Cli tool
 
-- Enjoy
+`bin/dope` is a cli tool for cosy config. run `./bin/dope help` check more detail
 
-### How to install plugins
+## How to install plugins
 
-Api is `require('core.pack').register_plugin`. So pass plugin as param into this function. Usage
+cosy use [lazy.nvim](https://github.com/folk/lazy.nvim) as package mangement plugin. register a plugin in `package.lua` by using cosy api `require('core.pack').package`. more useage check the
+lazy.nvim doc and you can some examples in package.lua file.
 
-like in `modules/your-folder-name/plugins.lua`
+### How to create module
 
-```lua
-local plugin = require('core.pack').register_plugin
-local conf = require('modules.ui.config')
+create a fold inside `modlues` folder and `package.lua` file you must created inside your module.
+cosy will auto read this file at startup.
 
-plugin {'glepnir/zephyr-nvim', config = conf.zephyr}
-
-plugin {'plugin github repo name'}
-```
-
-what is `config` . This is a keyword of [packer.nvim](https://github.com/wbthomason/packer.nvim), you need to check the doc of packer to know how to use packer.
-
-If a plugin has many configs you can create other file in `modules/your-folder-name/config.lua` avoid
-making the
-
-plugins.lua file too long. Recommend lazyload plugins. Check the usage in `modules` , it will improve your neovim
-
-start speed. `lazyload` is not magic, it just generate your config into some `autocmds` , you can check the
-
-`packer_compiled.lua` to check it. I don't like the default path config in packer it use `plugins` folder  So i set
-
-compiled file path to `~/.local/share/nvim/site/lua`, you can find compiled file in this path. Use `:h autocmd`
-
-to know more about. When you edit the config and open neovim and it does not take effect. Please try
-
- `PackerCompile` to generate a new compile file with your new change. In my personal config i have a function that
-
- can auto compiled . when i edit the lua file that in this path `~/.config/nvim`. But it will make some noise so I didn't
-
- use it in cosynvim. when i have a newimplement I will update it to cosynvim core.
-
-```lua
-
--- modules/completion/plugins.lua
-plugin {'neovim/nvim-lspconfig',
- -- used filetype to lazyload lsp
- -- config your language filetype in here
-  ft = { 'lua','rust','c','cpp'},
-  config = conf.nvim_lsp,
-}
-
--- modules/tools/plugins.lua
-plugin {'nvim-telescope/telescope.nvim',
-  -- use command to lazyload.
-  cmd = 'Telescope',
-  config = conf.telescope,
-  requires = {
-    {'nvim-lua/popup.nvim', opt = true},
-    {'nvim-lua/plenary.nvim',opt = true},
-    {'nvim-telescope/telescope-fzy-native.nvim',opt = true},
-  }
-}
-```
 
 ### How to config keymap
 
@@ -179,24 +128,10 @@ example file. Then config plugins keymap in `keymap/init.lua`. the example of ap
 -- genreate keymap in noremal mode
 nmap {
   -- packer
-  {'<Leader>pu',cmd('PackerUpdate'),opts(noremap,silent,'Packer update')},
-  {'<Leader>pi',cmd('PackerInstall'),opts(noremap,silent)},
-  {'<Leader>pc',cmd('PackerCompile'),opts(noremap,silent)},
+  {'<Leader>pu',cmd('Lazy update'),opts(noremap,silent,'Lazy update')},
+   {"<C-h>",'<C-w>h',opts(noremap)},
+  
 }
-```
-
-`map` foreach every table and generate a new table that can pass to `vim.keymap.set`. `cmd('PackerUpdate')` just
-
-return a string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu>`, `opts(noremap,silent,'Packer update')` generate options table
-
-`{noremap = true,silent = true, desc = 'Packer Update' }` . for some vim mode remap. not need use `cmd` function. oh maybe you will be
-
-confused what is `<cmd>` check `:h <cmd>` you will get answer
-
-```lua
-  -- window jump
-  {"<C-h>",'<C-w>h',opts(noremap)},
-```
 
 also you can pass a table not include sub table to `map` like
 
