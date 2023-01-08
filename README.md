@@ -94,6 +94,10 @@ fast speed and modernity.
 
 `bin/dope` is a cli tool for cosy config. run `./bin/dope help` check more detail
 
+you can use `/bin/dope debug ui,editor` for debug modues. when you get trouble
+this is useful for your debug, this command mean disable `ui editor` modules.Then
+the plugins in `ui,editor` modules not load.
+
 ## How to install plugins
 
 cosy use [lazy.nvim](https://github.com/folk/lazy.nvim) as package mangement plugin. register a plugin in `package.lua` by using cosy api `require('core.pack').package`. more useage check the
