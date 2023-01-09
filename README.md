@@ -4,7 +4,7 @@
     height="30"
     width="0px"
   />
-  Cosynvim
+  dope
   <img
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
     height="30"
@@ -13,22 +13,22 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/glepnir/cosynvim/stargazers">
+  <a href="https://github.com/glepnir/dope/stargazers">
     <img
       alt="Stargazers"
-      src="https://img.shields.io/github/stars/glepnir/cosynvim?style=for-the-badge&logo=starship&color=c678dd&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/stars/glepnir/dope?style=for-the-badge&logo=starship&color=c678dd&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://github.com/glepnir/cosynvim/issues">
+  <a href="https://github.com/glepnir/dope/issues">
     <img
       alt="Issues"
-      src="https://img.shields.io/github/issues/glepnir/cosynvim?style=for-the-badge&logo=gitbook&color=f0c062&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/issues/glepnir/dope?style=for-the-badge&logo=gitbook&color=f0c062&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://github.com/glepnir/cosynvim/contributors">
+  <a href="https://github.com/glepnir/dope/contributors">
     <img
       alt="Contributors"
-      src="https://img.shields.io/github/contributors/glepnir/cosynvim?style=for-the-badge&logo=opensourceinitiative&color=abcf84&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/contributors/glepnir/dope?style=for-the-badge&logo=opensourceinitiative&color=abcf84&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
 </p>
@@ -40,11 +40,11 @@
   />
 </p>
 
-## What is Cosynvim
+## What is dope
 
-Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I created Cosynvim.
+Many people are interested in my [personal configuration](https://github.com/glepnir/nvim). So I created dope.
 
-What does Cosynvim do? Cosynvim wants vimers to have their own config with high performance
+What does dope do? dope wants vimers to have their own config with high performance
 
 fast speed and modernity.
 
@@ -82,17 +82,17 @@ fast speed and modernity.
 │   └── package.json
 ```
 
-- `core` heart of cosy it include the api of cosy
+- `core` heart of dope it include the api of dope
 - `modlues` plugin module and config in this folder
 - `snippets` vscode snippets json file
 
 ## Usage
 
-- Click button `Use this template` It will genereate a new repo based on cosy on your github
+- Click button `Use this template` It will genereate a new repo based on dope on your github
 
 ### Cli tool
 
-`bin/dope` is a cli tool for cosy config. run `./bin/dope help` check more detail
+`bin/dope` is a cli tool for dope config. run `./bin/dope help` check more detail
 
 you can use `/bin/dope debug ui,editor` for debug modues. when you get trouble
 this is useful for your debug, this command mean disable `ui editor` modules.Then
@@ -100,18 +100,18 @@ the plugins in `ui,editor` modules not load.
 
 ## How to install plugins
 
-cosy use [lazy.nvim](https://github.com/folk/lazy.nvim) as package mangement plugin. register a plugin in `package.lua` by using cosy api `require('core.pack').package`. more useage check the
+dope use [lazy.nvim](https://github.com/folk/lazy.nvim) as package mangement plugin. register a plugin in `package.lua` by using dope api `require('core.pack').package`. more useage check the
 lazy.nvim doc and you can some examples in package.lua file.
 
 ### How to create module
 
 create a fold inside `modlues` folder and `package.lua` file you must created inside your module.
-cosy will auto read this file at startup.
+dope will auto read this file at startup.
 
 
 ### How to config keymap
 
-In cosynvim there are some apis that make it easy to set keymap. All apis are defined in `core/keymap.lua`.
+In dope there are some apis that make it easy to set keymap. All apis are defined in `core/keymap.lua`.
 
 ```lua
 keymap.(n/i/c/v/x/t)map -- function to generate keymap by vim.keymap.set
@@ -124,7 +124,7 @@ keymap.cu -- work like cmd but for visual map
 
 Use these apis to config your keymap in `keymap` folder. In this folder `keymap/init.lua` is necessary but if you
 
-have many vim mode remap you can config them in `keymap/other-file.lua` in cosynvim is `config.lua` just an
+have many vim mode remap you can config them in `keymap/other-file.lua` in dope is `config.lua` just an
 
 example file. Then config plugins keymap in `keymap/init.lua`. the example of api usage
 
