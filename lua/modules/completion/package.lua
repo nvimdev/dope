@@ -10,6 +10,13 @@ package({
 })
 
 package({
+  'glepnir/lspsaga.nvim',
+  event = 'BufRead',
+  dev = true,
+  config = conf.lspsaga,
+})
+
+package({
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   config = conf.nvim_cmp,

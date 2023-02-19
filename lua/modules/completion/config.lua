@@ -37,4 +37,7 @@ function config.lua_snip()
   })
 end
 
+function config.lspsaga()
+  require('lspsaga').setup({})
+end
 return config

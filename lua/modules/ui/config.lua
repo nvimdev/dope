@@ -47,11 +47,20 @@ function config.nvim_bufferline()
   })
 end
 
-function config.nvim_tree()
-  require('nvim-tree').setup({
-    disable_netrw = false,
-    hijack_cursor = true,
-    hijack_netrw = true,
+function config.indent_blankline()
+  require('indent_blankline').setup({
+    char = '│',
+    use_treesitter_scope = true,
+    show_first_indent_level = true,
+    show_current_context = false,
+    show_current_context_start = false,
+    show_current_context_start_on_current_line = false,
+    filetype_exclude = {
+      'dashboard',
+      'log',
+      'TelescopePrompt',
+    },
+    buftype_exclude = { 'terminal', 'nofile', 'prompt' },
   })
 end
 
