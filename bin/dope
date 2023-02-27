@@ -59,7 +59,7 @@ if argument == 'help' then
   local usage = {
     { '\tinstall', '  install Plugins' },
     { '\tupdate ', '  update Plugins' },
-    { '\tclean  ', '  clean the direcotries' },
+    { '\tclean  ', '  clean the directories' },
     { '\tdoctor ', '  check the plugins info' },
     { '\tmodules', '  Show all modules' },
     { '\tdebug  ', '  dynamic disable modules for debug' },
