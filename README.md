@@ -36,7 +36,7 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/41671631/176990490-aeb6111b-41ea-4767-bc03-c0aee4774a4e.png"
   height = "40%"
-  widht = "40%"
+  width = "40%"
   />
 </p>
 
@@ -88,7 +88,7 @@ fast speed and modernity.
 
 ## Usage
 
-- Click button `Use this template` It will genereate a new repo based on dope on your github
+- Click button `Use this template` It will generate a new repo based on dope on your GitHub
 
 ### Cli tool
 
@@ -100,7 +100,7 @@ the plugins in `ui,editor` modules not load.
 
 ## How to install plugins
 
-dope use [lazy.nvim](https://github.com/folk/lazy.nvim) as package mangement plugin. register a plugin in `package.lua` by using dope api `require('core.pack').package`. more useage check the
+dope use [lazy.nvim](https://github.com/folk/lazy.nvim) as package management plugin. register a plugin in `package.lua` by using dope api `require('core.pack').package`. more usage check the
 lazy.nvim doc and you can some examples in package.lua file.
 
 ### How to create module
@@ -129,7 +129,7 @@ have many vim mode remap you can config them in `keymap/other-file.lua` in dope 
 example file. Then config plugins keymap in `keymap/init.lua`. the example of api usage
 
 ```lua
--- genreate keymap in noremal mode
+-- generate keymap in noremal mode
 nmap {
   -- packer
   {'<Leader>pu',cmd('Lazy update'),opts(noremap,silent,'Lazy update')},
