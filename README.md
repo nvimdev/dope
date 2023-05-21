@@ -164,4 +164,4 @@ xset r rate 210 40
 
 If you'd like to support my work financially, buy me a drink through [paypal](https://paypal.me/bobbyhub)
 
-## Licenese MIT
+## License MIT
