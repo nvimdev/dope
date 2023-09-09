@@ -20,6 +20,7 @@ function config.telescope()
     },
   })
   require('telescope').load_extension('fzy_native')
+  require('telescope').load_extension('nvim_user_config')
 end
 
 return config
