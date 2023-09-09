@@ -18,3 +18,10 @@ package({
     require('hlsearch').setup()
   end,
 })
+
+package({
+  'nvimdev/dbsession.nvim',
+  cmd = { 'SessionSave', 'SessionLoad', 'SessionDelete' },
+  opts = true,
+})
+

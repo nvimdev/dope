@@ -46,7 +46,7 @@ nmap({
   { '<Leader>pu', cmd('Lazy update'), opts(noremap, silent) },
   { '<Leader>pi', cmd('Lazy install'), opts(noremap, silent) },
   -- dashboard
-  { '<Leader>n', cmd('DashboardNewFile'), opts(noremap, silent) },
+  { '<Leader>n', cmd('lua require(\'dashboard\'):new_file()'), opts(noremap, silent) },
   { '<Leader>ss', cmd('SessionSave'), opts(noremap, silent) },
   { '<Leader>sl', cmd('SessionLoad'), opts(noremap, silent) },
   -- nvimtree
