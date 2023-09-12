@@ -136,6 +136,7 @@ nmap {
    {"<C-h>",'<C-w>h',opts(noremap)},
   
 }
+```
 
 also you can pass a table not include sub table to `map` like
 
